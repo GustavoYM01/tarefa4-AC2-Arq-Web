@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.tarefa4.dtos.AgendaDTO;
+import com.example.tarefa4.models.Agenda;
 import com.example.tarefa4.services.AgendaService;
 
 @RestController
@@ -45,5 +46,10 @@ public class AgendaController {
   @GetMapping()
   public List<AgendaDTO> obterTodos() {
     return agendaService.listarTodos(); 
+  }
+
+  @GetMapping("{id}")
+  public Agenda obterPorId(@PathVariable Long id) {
+    return agendaService.obterPorId(id); 
   }
 }

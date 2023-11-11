@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.tarefa4.dtos.ProfessorDTO;
+import com.example.tarefa4.models.Professor;
 import com.example.tarefa4.services.ProfessorService;
+
 
 @RestController
 @RequestMapping("/api/professor")
@@ -46,4 +48,10 @@ public class ProfessorController {
   public List<ProfessorDTO> obterTodos() {
     return professorService.listarTodos(); 
   }
+
+  @GetMapping("{id}")
+  public Professor obterPorId(@PathVariable Long id) {
+    return professorService.obterPorId(id);
+  }
+  
 }
